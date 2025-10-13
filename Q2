@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int student_marks[10];
+    int highest_marks;
+    int student_count;
+    int current_mark;
+
+    student_count = 10;
+    highest_marks = 0;
+
+    for (current_mark = 0; current_mark < student_count; current_mark++)
+    {
+        printf("Enter marks for student %d: ", current_mark + 1);
+        scanf("%d", &student_marks[current_mark]);
+    }
+
+    highest_marks = student_marks[0];
+
+    for (current_mark = 1; current_mark < student_count; current_mark++)
+    {
+        if (student_marks[current_mark] > highest_marks)
+        {
+            highest_marks = student_marks[current_mark];
+        }
+    }
+
+    printf("\n\nThe highest marks scored in the class is: %d\n", highest_marks);
+
+    return 0;
+}
