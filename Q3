@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main(){
+    int employee_ids[] = {132, 79, 10, 5, 88, 301, 44, 1, 90, 2};
+    int total_employees;
+    int current_index;
+    int even_boundary;
+    int temporary_storage;
+
+    total_employees = sizeof(employee_ids) / sizeof(employee_ids[0]);
+    printf("Original list of Employee IDs:\n");
+    for (current_index = 0; current_index < total_employees; current_index++)
+    {
+        printf("%d ", employee_ids[current_index]);
+    }
+    printf("\n");
+    even_boundary = 0;
+
+    for (current_index = 0; current_index < total_employees; current_index++)
+    {
+        if (employee_ids[current_index] % 2 == 0)
+        {
+            temporary_storage = employee_ids[current_index];
+            employee_ids[current_index] = employee_ids[even_boundary];
+            employee_ids[even_boundary] = temporary_storage;
+
+            even_boundary++;
+        }
+    }
+    printf("Rearranged list (Evens first, Odds second):\n");
+    for (current_index = 0; current_index < total_employees; current_index++)
+    {
+        printf("%d ", employee_ids[current_index]);
+    }
+    printf("\n");
+
+    return 0;
+}
